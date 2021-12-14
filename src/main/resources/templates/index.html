@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div style="display: block;margin: 0 auto">
+    <h1>基于策略模式实现不同会员折扣计算</h1>
+    <form action="#" th:action="@{/createOrder}" th:object="${cart}" method="post">
+        <p>Goods Price: <input  th:field="*{goodsPrice}" type="number"></p>
+        <p>Card:
+            <select th:field="*{cardType}">
+                <option value="XX">不存在的会员</option>
+                <option value="CM">普通会员(无折扣)</option>
+                <option value="GCM">金卡会员（八折）</option>
+                <option value="PCM">白金卡会员（六折）</option>
+            </select>
+        </p>
+        <p><input type="submit" value="下单"/> <input type="reset" value="Reset"/></p>
+    </form>
+</div>
+<div th:if="${null != result}">
+    <table style="background: #e2f0e1;">
+        <tbody>
+        <tr>
+            <td>商品原价格：</td>
+            <td><div th:text="${result.getGoodsPrice()}"></td>
+        </tr>
+        <tr>
+            <td>商品折后价格：</td>
+            <td><div th:text="${result.getDiscountPrice()}"/></td>
+        </tr>
+        <tr>
+            <td>用户会员类型：</td>
+            <td><div th:text="${result.getCardType()}"/></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<br/>
+
+</body>
+</html>

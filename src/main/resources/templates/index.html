@@ -25,11 +25,19 @@
         <tbody>
         <tr>
             <td>商品原价格：</td>
-            <td><div th:text="${result.getGoodsPrice()}"></td>
+            <td>
+                <div th:if="${result.getGoodsPrice()==result.getDiscountPrice()}">
+                    <div th:text="${result.getGoodsPrice()}"/>
+                </div>
+
+                <div th:if="${result.getGoodsPrice()!=result.getDiscountPrice()}">
+                    <del><div th:text="${result.getGoodsPrice()}"/></del>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>商品折后价格：</td>
-            <td><div th:text="${result.getDiscountPrice()}"/></td>
+            <td><strong><div th:text="${result.getDiscountPrice()}"/></strong></td>
         </tr>
         <tr>
             <td>用户会员类型：</td>

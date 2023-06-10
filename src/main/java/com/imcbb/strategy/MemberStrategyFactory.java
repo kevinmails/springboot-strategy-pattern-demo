@@ -1,6 +1,7 @@
 package com.imcbb.strategy;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
@@ -8,7 +9,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Service
+@Component
 public class MemberStrategyFactory {
 
     private Map<String, MemberStrategy> memberStrategyMap;

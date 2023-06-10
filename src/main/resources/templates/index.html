@@ -9,7 +9,7 @@
     <h1>基于策略模式实现不同会员折扣计算</h1>
     <form action="#" th:action="@{/createOrder}" th:object="${cart}" method="post">
         <p>Goods Price: <input  th:field="*{goodsPrice}" type="number"></p>
-        <p>Card:
+        <p>Card Type:
             <select th:field="*{cardType}">
                 <option value="XX">不存在的会员</option>
                 <option value="CM">普通会员(无折扣)</option>
